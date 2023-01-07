@@ -2,6 +2,8 @@ package com.ur4n0.dietor.user;
 
 import java.util.List;
 
+import com.ur4n0.dietor.dto.CreateUserRequest;
+import com.ur4n0.dietor.dto.UpdateUserRequest;
 import com.ur4n0.dietor.feed.Feed;
 
 import jakarta.persistence.Column;
@@ -55,4 +57,27 @@ public class User {
     public enum ObjectivEnum {
         LOSE, GAIN
     }
+
+    public User(CreateUserRequest user){
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.weight = user.getWeight();
+        this.height = user.getHeight();
+        this.age = user.getAge();
+    }
+
+    public User(UpdateUserRequest user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.weight = user.getWeight();
+        this.height = user.getHeight();
+        this.age = user.getAge();
+        this.feeds = user.getFeeds();
+        this.goal = user.getGoal();
+    }    
+
+    
 }
